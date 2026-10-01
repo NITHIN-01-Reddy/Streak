@@ -2,12 +2,14 @@ import { useEffect } from 'react'
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
 import { useStore } from './store'
 import Today from './pages/Today.jsx'
+import Steps from './pages/Steps.jsx'
 import Habits from './pages/Habits.jsx'
 import Stats from './pages/Stats.jsx'
 import Settings from './pages/Settings.jsx'
 
 const tabs = [
   { to: '/', label: 'Today', icon: '☀️' },
+  { to: '/steps', label: 'Steps', icon: '👟' },
   { to: '/habits', label: 'Habits', icon: '📋' },
   { to: '/stats', label: 'Stats', icon: '📈' },
   { to: '/settings', label: 'Settings', icon: '⚙️' }
@@ -25,6 +27,7 @@ export default function App() {
       <main className="px-4 pt-6">
         <Routes>
           <Route path="/" element={<Today />} />
+          <Route path="/steps" element={<Steps />} />
           <Route path="/habits" element={<Habits />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/settings" element={<Settings />} />
@@ -34,7 +37,7 @@ export default function App() {
 
       <nav className="fixed inset-x-0 bottom-0 border-t border-indigo-100 bg-white/90 backdrop-blur dark:border-indigo-950 dark:bg-[#161433]/90"
            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-        <ul className="mx-auto grid max-w-md grid-cols-4">
+        <ul className="mx-auto grid max-w-md grid-cols-5">
           {tabs.map((t) => (
             <li key={t.to}>
               <NavLink
